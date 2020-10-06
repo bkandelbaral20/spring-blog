@@ -12,12 +12,18 @@ class RollDiceController {
 
     @GetMapping("/roll-dice/n")
     @ResponseBody
-    public static void main( String args[] ) {
+    public int rollDice(@PathVariable int n){
+        return  n;
+    }
+    public static int randomNumbers( String args[] ) {
         int min = 1;
         int max = 6;
+        int random_int;
+
         //Generate random int value from 1 to 6
         System.out.println("Random value in int from "+min+" to "+max+ ":");
-        int random_int = (int)(Math.random() * (max - min + 1) + min);
-        System.out.println(random_int);
+        return random_int = (int)(Math.random() * (max - min + 1) + min);
+        }
+
     }
-}
+
