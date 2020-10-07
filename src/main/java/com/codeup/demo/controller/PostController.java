@@ -12,22 +12,22 @@ import java.util.List;
 public class PostController {
 
 //    -------------servlets exercises
-    @RequestMapping(path = "/posts", method = RequestMethod.GET)
-    @ResponseBody
-    public String post1() {
-        return "posts index page";
-    }
-    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-    @ResponseBody
-    public String post3() {
-        return "view the form for creating a post";
-    }
-
-    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
-    @ResponseBody
-    public String post4() {
-        return "create a new post";
-    }
+//    @RequestMapping(path = "/posts", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String post1() {
+//        return "posts index page";
+//    }
+//    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String post3() {
+//        return "view the form for creating a post";
+//    }
+//
+//    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
+//    @ResponseBody
+//    public String post4() {
+//        return "create a new post";
+//    }
 
 // ------------View exercises
 
@@ -56,7 +56,8 @@ public class PostController {
                 "JavaScript is easy to learn"));
         postList.add(new Post(0, "Jquery", "jQuery is a lightweight, \"write less, do more\", JavaScript library.\n" +
                 "The purpose of jQuery is to make it much easier to use JavaScript on your website." +
-                "jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code."));
+                "jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps" +
+                " them into methods that you can call with a single line of code."));
         postList.add(new Post(0, "React", "jQuery is a lightweight, \"write less, do more\", JavaScript library.\n" +
                  "The purpose of jQuery is to make it much easier to use JavaScript on your website.\n" +
                 "jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps" +
