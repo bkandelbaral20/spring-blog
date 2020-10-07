@@ -4,6 +4,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="blogs")
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
