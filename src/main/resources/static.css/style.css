@@ -1,0 +1,18 @@
+.header {
+    font-size: 5em;
+    text-align: center;
+    background-color: cornflowerblue;
+   border-color: black;
+    border-style: double;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 35px;
+    width:100%;
+    background-color: cornsilk;
+    color: black;
+    text-align: center;
+}

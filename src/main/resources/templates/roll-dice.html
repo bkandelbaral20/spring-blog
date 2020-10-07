@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>The roll dice Game</title>
+    <link th:replace="partials/links :: links"/>
 </head>
 <body>
+<header th:replace="partials/head :: head"></header>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <h3>Please guess a number :)</h3>
 
@@ -22,5 +25,7 @@
 <h3>Random number:<span th:text="${random}">World</span>!</h3>
 <h3>Alert: <span th:text="${rightGuess}">World</span>!</h3>
 
+<footer th:replace="partials/footer :: footer"></footer>
+<scripts th:replace="partials/scripts :: scripts"></scripts>
 </body>
 </html>

@@ -1,8 +1,6 @@
 
 
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head" />
-<body>
-<nav th:replace="partials :: navbar" />
-<h1>Welcome To My Sites!</h1>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<standard_links th:fragment="header">
+    <div class="header nav-top-margin">My Blog Site</div>
+</standard_links>
