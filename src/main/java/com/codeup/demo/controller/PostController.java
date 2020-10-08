@@ -1,13 +1,10 @@
 package com.codeup.demo.controller;
 
 import com.codeup.demo.models.Post;
-import com.codeup.demo.models.PostRepository;
+import com.codeup.demo.repository.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -44,18 +41,24 @@ private final PostRepository adDao;
     }
 
     @GetMapping("/posts/delete/{id}")
-    public String deletePost(@PathVariable long id, Model model) {
-        model.addAttribute("delPost", adDao.getOne(id));
-        return "posts/show";
+    public String deletePost(@PathVariable long id) {
+      adDao.deleteById(id);
+        return "redirect:/posts";
     }
 
-    @GetMapping("/posts/create/{id}")
-    public String CreatePost(@PathVariable long id, Model model) {
-        model.addAttribute("delPost", adDao.getOne(id));
-        return "posts/show";
+    @GetMapping("/posts/edit/{id}")
+    public String EditPost(@PathVariable long id, Model model) {
+        model.addAttribute("editPost", adDao.getOne(id));
+        return "posts/edit";
     }
-
-
+    @PostMapping("/posts/edit/{id}")
+    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+        Post post = adDao.getOne(id);
+       post.setTitle(title);
+       post.setBody(body);
+       adDao.save(post);
+       return "redirect:/posts";
+    }
 
 
 // ------------View exercises
