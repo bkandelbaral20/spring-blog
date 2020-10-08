@@ -1,5 +1,6 @@
-package com.codeup.demo.models;
+package com.codeup.demo.repository;
 
+import com.codeup.demo.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
