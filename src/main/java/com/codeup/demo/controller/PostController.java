@@ -31,9 +31,9 @@ public class PostController {
 //    }
 
 //   --------------JPA exercises
-private final PostRepository adDao;
+private final PostRepository<U, Number> adDao;
 
-    public PostController(PostRepository adDao) {
+    public PostController(PostRepository<U, Number> adDao) {
         this.adDao = adDao;
     }
 

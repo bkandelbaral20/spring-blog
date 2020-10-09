@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface PostRepository<U, L extends Number> extends JpaRepository<Post, Long> {
     Post findByTitle(String title); // select * from ads where title = ?
     Post findFirstByTitle(String title); // select * from ads where title = ? limit 1
 
