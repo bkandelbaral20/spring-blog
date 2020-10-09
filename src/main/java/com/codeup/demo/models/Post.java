@@ -2,7 +2,7 @@ package com.codeup.demo.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="blogs")
+@Table(name="posts")
 public class Post {
 
     @Id
@@ -15,9 +15,9 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-//    @ManyToOne
-//    @JoinColumn(name = "owner_id")
-//    private User owner;
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 
     public Post(){}
 
