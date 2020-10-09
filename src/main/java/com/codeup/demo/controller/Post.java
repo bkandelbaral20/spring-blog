@@ -18,7 +18,6 @@ public class Post {
 
     @ManyToOne
     @JoinColumn (name = "user_id")
-
 //    user property
     private User user;
 

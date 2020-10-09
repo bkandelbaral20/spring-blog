@@ -75,9 +75,9 @@ private final PostRepository adDao;
 
     //    This has all my blogs post about programming languages
 
-//    @RequestMapping(path = "/posts/all", method = RequestMethod.GET)
-//    public String showAllPosts(Model model) {
-//        List<Post> postList = new ArrayList<>();
+    @RequestMapping(path = "/posts/all", method = RequestMethod.GET)
+    public String showAllPosts(Model model) {
+        List<Post> postList = new ArrayList<>();
 //        postList.add(new Post(0, "HTML", "HTML stands for Hyper Text Markup Language"+ " it is the " +
 //                "standard markup language for creating Web pages, it describes the structure of a Web page"));
 //        postList.add(new Post(0, "Css", "CSS stands for Cascading Style Sheets\n" +
@@ -99,10 +99,10 @@ private final PostRepository adDao;
 //                 "The purpose of jQuery is to make it much easier to use JavaScript on your website.\n" +
 //                "jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps" +
 //                " them into methods that you can call with a single line of code."));
-//
-//        model.addAttribute("posts", postList);
-//        return "posts/index";
-//    }
+
+        model.addAttribute("posts", postList);
+        return "posts/index";
+    }
 
 //    @RequestMapping(path = "/posts", method = RequestMethod.GET)
 //    public String showAllPosts(Model model) {
