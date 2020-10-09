@@ -1,4 +1,6 @@
-package com.codeup.demo.models;
+package com.codeup.demo.controller;
+
+import com.codeup.demo.controller.Post;
 
 import javax.persistence.*;
 import java.util.List;

@@ -16,6 +16,7 @@
             <a th:href="'posts/delete/'+ ${item.id}"> Delete</a>
             <a th:href="'posts/edit/'+ ${item.id}"> Edit</a>
             <p th:text="${item.body}"></p>
+            <p th:text="${item.getUser().getEmail()}"></p>
             <br>
         </div>
     </show_post>

@@ -1,12 +1,7 @@
-package com.codeup.demo.repository;
+package com.codeup.demo.controller;
 
-import com.codeup.demo.models.Post;
-import com.codeup.demo.models.User;
+import com.codeup.demo.controller.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface UserRepository extends JpaRepository <User, Long> {
 //    User findByUserName(String username); // select * from ads where title = ?
