@@ -1,5 +1,9 @@
 package com.codeup.demo.controller;
 
+
+import com.codeup.demo.models.Post;
+import com.codeup.demo.repository.PostRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +51,24 @@ private final UserRepository userRepo;
     public String deletePost(@PathVariable long id) {
       adDao.deleteById(id);
         return "redirect:/posts";
+
     }
+
+    @GetMapping("/posts/edit/{id}")
+    public String EditPost(@PathVariable long id, Model model) {
+        model.addAttribute("editPost", adDao.getOne(id));
+        return "posts/edit";
+
+    }
+    @PostMapping("/posts/edit/{id}")
+    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+        Post post = adDao.getOne(id);
+       post.setTitle(title);
+       post.setBody(body);
+       adDao.save(post);
+       return "redirect:/posts";
+    }
+
 
     @GetMapping("/posts/edit/{id}")
     public String EditPost(@PathVariable long id, Model model) {
@@ -77,7 +98,11 @@ private final UserRepository userRepo;
 
     //    This has all my blogs post about programming languages
 
+
     @RequestMapping(path = "/posts/all", method = RequestMethod.GET)
+
+    @RequestMapping(path = "/posts", method = RequestMethod.GET)
+
     public String showAllPosts(Model model) {
         List<Post> postList = new ArrayList<>();
 //        postList.add(new Post(0, "HTML", "HTML stands for Hyper Text Markup Language"+ " it is the " +
@@ -106,6 +131,7 @@ private final UserRepository userRepo;
         return "posts/index";
     }
 
+
     @GetMapping("posts/hardcode/create")
     public String createHardcodePost(){
         Post post = new Post();
@@ -116,6 +142,7 @@ private final UserRepository userRepo;
         return "redirect:/posts";
 
     }
+
 
 //    @RequestMapping(path = "/posts", method = RequestMethod.GET)
 //    public String showAllPosts(Model model) {
