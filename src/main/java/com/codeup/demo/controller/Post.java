@@ -1,8 +1,9 @@
-package com.codeup.demo.models;
+package com.codeup.demo.controller;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="blogs")
+@Table(name="posts")
 public class Post {
 
     @Id
@@ -15,12 +16,26 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+//    user property for tracking users
+    private User user;
+
     public Post(){}
 
-    public Post(long id, String title, String body) {
+    public Post(long id, String title, String body, User user) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {
