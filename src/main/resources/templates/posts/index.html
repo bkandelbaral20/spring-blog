@@ -15,7 +15,7 @@
             <h2 th:text="${item.title}"> Title:</h2>
             <a th:href="'posts/delete/'+ ${item.id}"> Delete</a>
             <a th:href="'posts/edit/'+ ${item.id}"> Edit</a>
-            <p th:text="${item.body}"> Description: </p>
+            <h4 th:text="${item.body}"> Description: </h4>
             <p th:text="${item.getUser().getEmail()}"> Email of user</p>
             <br>
         </div>

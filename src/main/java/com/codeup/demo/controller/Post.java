@@ -18,7 +18,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn (name = "user_id")
-//    user property
+//    user property for tracking users
     private User user;
 
     public Post(){}

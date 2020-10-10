@@ -9,13 +9,12 @@
     <link th:replace="partials/links :: links"/>
 </head>
 <body>
-$END$
 <header th:replace="partials/head :: head"></header>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <main class="container">
     <h2 th:text="${post.title}"></h2>
-    <p th:text="${post.body}"></p>
+    <h5 th:text="${post.body}"></h5>
     <p th:text="${post.getUser().getUsername()}"></p>
 </main>
 

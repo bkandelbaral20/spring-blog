@@ -30,9 +30,11 @@ public class PostController {
 
 //   --------------JPA exercises
 private final PostRepository adDao;
+private final UserRepository userRepo;
 
-    public PostController(PostRepository  adDao) {
+    public PostController(PostRepository  adDao, UserRepository userRepo) {
         this.adDao = adDao;
+        this.userRepo = userRepo;
     }
 
     @GetMapping("/posts")
@@ -41,25 +43,25 @@ private final PostRepository adDao;
         return "posts/index";
     }
 
-//    @GetMapping("/posts/delete/{id}")
-//    public String deletePost(@PathVariable long id) {
-//      adDao.deleteById(id);
-//        return "redirect:/posts";
-//    }
-//
-//    @GetMapping("/posts/edit/{id}")
-//    public String EditPost(@PathVariable long id, Model model) {
-//        model.addAttribute("editPost", adDao.getOne(id));
-//        return "posts/edit";
-//    }
-//    @PostMapping("/posts/edit/{id}")
-//    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
-//        Post post = adDao.getOne(id);
-//       post.setTitle(title);
-//       post.setBody(body);
-//       adDao.save(post);
-//       return "redirect:/posts";
-//    }
+    @GetMapping("/posts/delete/{id}")
+    public String deletePost(@PathVariable long id) {
+      adDao.deleteById(id);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/edit/{id}")
+    public String EditPost(@PathVariable long id, Model model) {
+        model.addAttribute("editPost", adDao.getOne(id));
+        return "posts/edit";
+    }
+    @PostMapping("/posts/edit/{id}")
+    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+        Post post = adDao.getOne(id);
+       post.setTitle(title);
+       post.setBody(body);
+       adDao.save(post);
+       return "redirect:/posts";
+    }
 
 
 
@@ -102,6 +104,17 @@ private final PostRepository adDao;
 
         model.addAttribute("posts", postList);
         return "posts/index";
+    }
+
+    @GetMapping("posts/hardcode/create")
+    public String createHardcodePost(){
+        Post post = new Post();
+        post.setTitle("hello message");
+        post.setBody("hello how are you ? how you are fine?");
+        post.setUser(userRepo.getOne(1L));
+        adDao.save(post);
+        return "redirect:/posts";
+
     }
 
 //    @RequestMapping(path = "/posts", method = RequestMethod.GET)
