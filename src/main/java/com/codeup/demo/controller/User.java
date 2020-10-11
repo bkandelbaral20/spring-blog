@@ -21,17 +21,26 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
+    @Column(nullable = false,  length = 100)
+    private String date;
+
+    @Column(nullable = false, length = 100)
+    private String facebookId;
+
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
     public User() {
     }
 
-    public User(long id, String username, String email, String password, List<Post> posts) {
+    public User(long id, String username, String email, String password, String date, String facebookId, List<Post> posts) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.date = date;
+        this.facebookId = facebookId;
         this.posts = posts;
     }
 
@@ -73,5 +82,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 }
