@@ -1,9 +1,7 @@
 package com.codeup.demo.controller;
 
 
-import com.codeup.demo.models.Post;
-import com.codeup.demo.repository.PostRepository;
-
+import com.codeup.demo.controller.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -69,23 +67,6 @@ private final UserRepository userRepo;
        return "redirect:/posts";
     }
 
-
-    @GetMapping("/posts/edit/{id}")
-    public String EditPost(@PathVariable long id, Model model) {
-        model.addAttribute("editPost", adDao.getOne(id));
-        return "posts/edit";
-    }
-    @PostMapping("/posts/edit/{id}")
-    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
-        Post post = adDao.getOne(id);
-       post.setTitle(title);
-       post.setBody(body);
-       adDao.save(post);
-       return "redirect:/posts";
-    }
-
-
-
 // ------------View exercises
 
     @GetMapping("/posts/{id}")
@@ -100,9 +81,6 @@ private final UserRepository userRepo;
 
 
     @RequestMapping(path = "/posts/all", method = RequestMethod.GET)
-
-    @RequestMapping(path = "/posts", method = RequestMethod.GET)
-
     public String showAllPosts(Model model) {
         List<Post> postList = new ArrayList<>();
 //        postList.add(new Post(0, "HTML", "HTML stands for Hyper Text Markup Language"+ " it is the " +
