@@ -27,7 +27,6 @@ public class User {
     @Column(nullable = false, length = 100)
     private String facebookId;
 
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
