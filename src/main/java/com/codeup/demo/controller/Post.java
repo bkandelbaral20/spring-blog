@@ -1,6 +1,8 @@
 package com.codeup.demo.controller;
 
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="posts")
@@ -16,6 +18,10 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
+
+    @Column(nullable = false,  length = 100)
+    private Date date;
+
     @ManyToOne
     @JoinColumn (name = "user_id")
 //    user property for tracking users
@@ -23,11 +29,19 @@ public class Post {
 
     public Post(){}
 
-    public Post(long id, String title, String body, User user) {
+    public Post(long id, String title, String body, Date date,  User user) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public User getUser() {
