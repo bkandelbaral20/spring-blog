@@ -13,17 +13,11 @@
     <show_post th:if="${posts}">
         <div th:each="item : ${posts}">
 
-            <h2 th:text="${item.title}"> Title:</h2>
+            <h2 th:text="${item.title}"> </h2>
             <a th:href="'posts/delete/'+ ${item.id}"> Delete</a>
             <a th:href="'posts/edit/'+ ${item.id}"> Edit</a>
-            <h4 th:text="${item.body}"> Description: </h4>
-            <p th:text="${item.getUser().getEmail()}"> Email of user</p>
-
-            <h2 th:text="${item.title}"></h2>
-            <a th:href="'posts/delete/'+ ${item.id}"> Delete</a>
-            <a th:href="'posts/edit/'+ ${item.id}"> Edit</a>
-            <p th:text="${item.body}"></p>
-
+            <h4 th:text="${item.body}"> </h4>
+            <p th:text="${item.getUser().getEmail()}"></p>
             <br>
         </div>
     </show_post>
