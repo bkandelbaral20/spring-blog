@@ -2,12 +2,17 @@ package com.codeup.demo.controller;
 
 
 import com.codeup.demo.controller.Post;
+
+import com.codeup.demo.repository.PostRepository;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Controller
 public class PostController {
@@ -34,9 +39,13 @@ public class PostController {
 private final PostRepository adDao;
 private final UserRepository userRepo;
 
-    public PostController(PostRepository  adDao, UserRepository userRepo) {
+//service exercise
+private final EmailService emailService;
+
+    public PostController(PostRepository  adDao, UserRepository userRepo,EmailService emailService) {
         this.adDao = adDao;
         this.userRepo = userRepo;
+        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
@@ -66,6 +75,7 @@ private final UserRepository userRepo;
        adDao.save(post);
        return "redirect:/posts";
     }
+
 
 // ------------View exercises
 
