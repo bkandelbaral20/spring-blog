@@ -2,6 +2,10 @@ package com.codeup.demo.controller;
 
 
 import com.codeup.demo.controller.Post;
+
+import com.codeup.demo.repository.PostRepository;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +75,7 @@ private final EmailService emailService;
        adDao.save(post);
        return "redirect:/posts";
     }
+
 
 // ------------View exercises
 
