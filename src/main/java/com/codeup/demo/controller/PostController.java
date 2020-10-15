@@ -1,7 +1,7 @@
 package com.codeup.demo.controller;
 
 
-import com.codeup.demo.models.Post;
+import com.codeup.demo.controller.Post;
 import com.codeup.demo.repository.PostRepository;
 
 import org.springframework.stereotype.Controller;
@@ -70,19 +70,7 @@ private final UserRepository userRepo;
     }
 
 
-    @GetMapping("/posts/edit/{id}")
-    public String EditPost(@PathVariable long id, Model model) {
-        model.addAttribute("editPost", adDao.getOne(id));
-        return "posts/edit";
-    }
-    @PostMapping("/posts/edit/{id}")
-    public String newEditPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
-        Post post = adDao.getOne(id);
-       post.setTitle(title);
-       post.setBody(body);
-       adDao.save(post);
-       return "redirect:/posts";
-    }
+
 
 
 
