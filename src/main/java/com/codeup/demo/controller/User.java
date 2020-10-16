@@ -35,9 +35,19 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-
         this.facebookId = facebookId;
         this.posts = posts;
+    }
+
+    // implement the Copy Constructor right here in the User model!
+    // We can call on this constructor from elsewhere in our code, and don't have to specify all of
+    // the User object's properties (like email, username, etc)
+    public User(User copy) {
+        this.id = copy.id; // VERY IMPORTANT. Many things won't work if you don't include this assignment
+        this.email = copy.email;
+        this.username = copy.username;
+        this.password = copy.password;
+        this.posts = copy.posts;
     }
 
     public List<Post> getPosts() {
