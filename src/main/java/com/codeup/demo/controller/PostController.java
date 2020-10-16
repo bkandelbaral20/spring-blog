@@ -144,8 +144,10 @@ public class PostController {
     public String create(@ModelAttribute Post post) {
         User user = userRepo.findById(1L).orElse(null);
         post.setUser(user);
+       emailService.prepareAndSend(post, "created post: " + post.getTitle() ,
+               "Body : " + post.getBody());
         adDao.save(post);
-        return "redirect:/posts";
+    return "redirect:/posts";
     }
 
 
