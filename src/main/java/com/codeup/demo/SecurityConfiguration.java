@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(usersLoader)  // How to find users by their username
-                .passwordEncoder(passwordEncoder()) // How to encode and decode/verify passwords
+               .passwordEncoder(passwordEncoder()) // How to encode and decode/verify passwords
         ;
     }
 

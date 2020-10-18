@@ -6,6 +6,7 @@ import com.codeup.demo.models.Post;
 import com.codeup.demo.models.User;
 import com.codeup.demo.repositories.PostRepository;
 import com.codeup.demo.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -119,16 +120,16 @@ public class PostController {
 //    }
 //
 
-    @GetMapping("posts/hardcode/create")
-    public String createHardcodePost() {
-        Post post = new Post();
-        post.setTitle("hello message");
-        post.setBody("hello how are you ? how you are fine?");
-        post.setUser(userRepo.getOne(1L));
-        adDao.save(post);
-        return "redirect:/posts";
-
-    }
+//    @GetMapping("posts/hardcode/create")
+//    public String createHardcodePost() {
+//        Post post = new Post();
+//        post.setTitle("hello message");
+//        post.setBody("hello how are you ? how you are fine?");
+//        post.setUser(userRepo.getOne(1L));
+//        adDao.save(post);
+//        return "redirect:/posts";
+//
+//    }
 
 // -----------   form binding exercises
 //    Change your controller method for showing the post creation form to actually show the form created in the step
@@ -142,7 +143,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String create(@ModelAttribute Post post) {
-        User user = userRepo.findById(1L).orElse(null);
+       User user =  (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
        emailService.prepareAndSend(post, "created post: " + post.getTitle() ,
                "Body : " + post.getBody());
