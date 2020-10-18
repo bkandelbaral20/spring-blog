@@ -6,16 +6,16 @@
     <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<header th:replace="partials/head :: header"></header>
+<header th:replace="partials/head :: head"></header>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
+<h2>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h2>
 
 <main class="container">
     <h2>Ads by this user:</h2>
     <show_post th:if="${user.posts}">
         <div th:each="item : ${user.posts}">
-            <h2 th:text="${item.title}"></h2>
+            <p th:text=" ${item.title}"></p>
             <p th:text="${item.body}"></p>
             <br>
         </div>

@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <standard_links th:fragment="navbar">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light topnav">
@@ -41,9 +41,11 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 <!-- More links here... -->
-                            <form th:action="@{/logout}" th:method="post">
-                                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-                            </form>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                    </form>
+                </li>
             </form>
         </div>
     </nav>
