@@ -1,7 +1,11 @@
-package com.codeup.demo.controller;
+package com.codeup.demo.services;
 
+import com.codeup.demo.models.User;
+import com.codeup.demo.repositories.UserDetails;
+import com.codeup.demo.repositories.UserRepository;
+import com.codeup.demo.models.UserWithRoles;
 import org.springframework.core.userdetails.UserDetailsService;
-import org.springframework.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service

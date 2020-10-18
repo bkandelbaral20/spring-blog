@@ -1,11 +1,11 @@
 package com.codeup.demo.controller;
 
 
-import com.codeup.demo.controller.Post;
-
-import com.codeup.demo.controller.PostRepository;
-
-
+import com.codeup.demo.models.EmailService;
+import com.codeup.demo.models.Post;
+import com.codeup.demo.models.User;
+import com.codeup.demo.repositories.PostRepository;
+import com.codeup.demo.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,9 @@
-package com.codeup.demo.controller;
+package com.codeup.demo.models;
 
+
+import com.codeup.demo.models.User;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name="posts")

@@ -1,4 +1,4 @@
-package com.codeup.demo.controller;
+package com.codeup.demo.models;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
